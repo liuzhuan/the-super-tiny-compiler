@@ -118,11 +118,11 @@
  * Parsing
  * -------
  *
- * Parsing typically gets broken down into two phases: Lexical Analysis and
- * Syntactic Analysis.
+ * Parsing typically gets broken down into two phases: Lexical Analysis（词法分析） and
+ * Syntactic Analysis（语法分析）.
  *
  * 1. *Lexical Analysis* takes the raw code and splits it apart into these things
- *    called tokens by a thing called a tokenizer (or lexer).
+ *    called tokens by a thing called a tokenizer（分词器） (or lexer).
  *
  *    Tokens are an array of tiny little objects that describe an isolated piece
  *    of the syntax. They could be numbers, labels, punctuation, operators,
@@ -130,8 +130,8 @@
  *
  * 2. *Syntactic Analysis* takes the tokens and reformats them into a
  *    representation that describes each part of the syntax and their relation
- *    to one another. This is known as an intermediate representation or
- *    Abstract Syntax Tree.
+ *    to one another. This is known as an intermediate representation（中间表示） or
+ *    Abstract Syntax Tree（抽象语法树）.
  *
  *    An Abstract Syntax Tree, or AST for short, is a deeply nested object that
  *    represents code in a way that is both easy to work with and tells us a lot
