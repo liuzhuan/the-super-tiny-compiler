@@ -536,6 +536,7 @@ function tokenizer(input) {
   // Then at the end of our `tokenizer` we simply return the tokens array.
   return tokens;
 }
+// end of tokenizer
 
 /**
  * ============================================================================
@@ -655,7 +656,7 @@ function parser(tokens) {
       ) {
         // we'll call the `walk` function which will return a `node` and we'll
         // push it into our `node.params`.
-        node.params.push(walk());
+        node.params.push(walk()); // 此处的递归用法是核心和难点
         token = tokens[current];
       }
 
@@ -670,7 +671,7 @@ function parser(tokens) {
     // Again, if we haven't recognized the token type by now we're going to
     // throw an error.
     throw new TypeError(token.type);
-  }
+  } // end of walk function
 
   // Now, we're going to create our AST which will have a root which is a
   // `Program` node.
@@ -695,6 +696,8 @@ function parser(tokens) {
   // At the end of our parser we'll return the AST.
   return ast;
 }
+
+// end of Parser
 
 /**
  * ============================================================================
@@ -789,7 +792,7 @@ function traverser(ast, visitor) {
   // Finally we kickstart the traverser by calling `traverseNode` with our ast
   // with no `parent` because the top level of the AST doesn't have a parent.
   traverseNode(ast, null);
-}
+} // end of traverser function
 
 /**
  * ============================================================================
@@ -921,13 +924,13 @@ function transformer(ast) {
         // `context`.
         parent._context.push(expression);
       },
-    }
+    } // 这一段完全不懂
   });
 
   // At the end of our transformer function we'll return the new ast that we
   // just created.
   return newAst;
-}
+} // end of transformer
 
 /**
  * ============================================================================
@@ -991,7 +994,7 @@ function codeGenerator(node) {
     default:
       throw new TypeError(node.type);
   }
-}
+} // end of codeGenerator
 
 /**
  * ============================================================================
@@ -1018,7 +1021,7 @@ function compiler(input) {
 
   // and simply return the output!
   return output;
-}
+} // end of compiler
 
 /**
  * ============================================================================
